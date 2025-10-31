@@ -1,0 +1,34 @@
+<!--pages/test.wxml-->
+<view class="test-container" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd" bindkeydown="onKeyDown">
+  <view class="info-box">
+    <view class="info-item">
+      <text class="info-num">{{currentLevel}}</text>
+      <text class="info-label">视力</text>
+    </view>
+    <view class="info-item">
+      <text class="info-num">{{testCount}} / 5</text>
+      <text class="info-label">数量</text>
+    </view>
+    <view class="info-item">
+      <text class="info-num">{{formattedTime}}</text>
+      <text class="info-label">时间</text>
+    </view>
+  </view>
+  <view class="img-center">
+    <image class="e-img-large" src="/images/e.jpg" style="transform: rotate({{rotateDeg}}deg);" />
+  </view>
+  <view class="btn-box-row">
+    <view class="btn-square">
+      <button class="square-btn" disabled>上</button>
+    </view>
+    <view class="btn-square">
+      <button class="square-btn" disabled>左</button>
+    </view>
+    <view class="btn-square">
+      <button class="square-btn" disabled>右</button>
+    </view>
+    <view class="btn-square">
+      <button class="square-btn" disabled>下</button>
+    </view>
+  </view>
+</view>

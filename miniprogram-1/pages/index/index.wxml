@@ -1,0 +1,8 @@
+<!--index.wxml-->
+<navigation-bar title="Weixin" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <text class="title">E-game 弱视视力训练</text>
+    <button class="start-btn" bindtap="startTest">开始测试</button>
+  </view>
+</scroll-view>
