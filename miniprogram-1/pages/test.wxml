@@ -15,20 +15,27 @@
     </view>
   </view>
   <view class="img-center">
-    <image class="e-img-large" src="/images/e.jpg" style="transform: rotate({{rotateDeg}}deg);" />
+    <image class="e-img-large" src="/images/e.jpg" style="transform: rotate({{rotateDeg}}deg); width:{{eImgSize}}px; height:{{eImgSize}}px;" />
   </view>
-  <view class="btn-box-row">
-    <view class="btn-square">
-      <button class="square-btn" disabled>上</button>
+  <!-- 十字排列按钮部分 -->
+  <view class="btn-cross-box">
+    <view class="cross-row">
+      <view class="cross-empty"></view>
+      <view class="cross-btn-box"><button class="cross-btn" bindtap="onUp">上</button></view>
+      <view class="cross-empty"></view>
     </view>
-    <view class="btn-square">
-      <button class="square-btn" disabled>左</button>
+    <view class="cross-row">
+      <view class="cross-btn-box"><button class="cross-btn" bindtap="onLeft">左</button></view>
+      <view class="cross-empty"></view>
+      <view class="cross-btn-box"><button class="cross-btn" bindtap="onRight">右</button></view>
     </view>
-    <view class="btn-square">
-      <button class="square-btn" disabled>右</button>
+    <view class="cross-row">
+      <view class="cross-empty"></view>
+      <view class="cross-btn-box"><button class="cross-btn" bindtap="onDown">下</button></view>
+      <view class="cross-empty"></view>
     </view>
-    <view class="btn-square">
-      <button class="square-btn" disabled>下</button>
-    </view>
+  </view>
+  <view class="restart-box">
+    <button class="restart-btn" bindtap="onRestart">重新开始</button>
   </view>
 </view>
