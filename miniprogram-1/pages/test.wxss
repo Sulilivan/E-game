@@ -3,13 +3,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* 垂直居中 */
+  justify-content: center;
   min-height: 100vh;
   background: #f5f5f5;
-  /* 新增：让内容高度居中 */
   box-sizing: border-box;
 }
 
+/* 信息栏 */
 .info-box {
   display: flex;
   flex-direction: row;
@@ -17,106 +17,114 @@
   align-items: flex-end;
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 2px 8px #eee;
+  box-shadow: 0 4px 16px #ddd;
   padding: 10px 20px;
-  margin-bottom: 20px;
-  gap: 30px;
+  margin-bottom: 10px;
+  gap: 0;
+  margin-top: 40px;
 }
-
 .info-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 10px;
+  position: relative;
 }
-
+.info-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -10px;
+  top: 10px;
+  width: 2px;
+  height: 32px;
+  background: #e0e0e0;
+  border-radius: 1px;
+}
 .info-num {
   font-size: 22px;
   font-weight: bold;
   color: #333;
   margin-bottom: 2px;
 }
-
 .info-label {
   font-size: 14px;
   color: #888;
 }
 
+/* 图片区域 */
 .img-center {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 220px; /* 固定图片区域高度，建议用初始最大高度 */
+  height: 66vw;
   margin-bottom: 30px;
+  margin-top: 40px;
   box-sizing: border-box;
   overflow: hidden;
 }
-
 .e-img-large {
-  width: 66vw;
-  height: 66vw;
-  max-width: 400px;
-  max-height: 400px;
+  width: 50vw;
+  max-width: 50vw;
+  height: auto;
+  max-height: 50vw;
+  display: block;
 }
 
-.btn-box-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 18px;
-  margin-top: 10px;
-}
-
-.btn-square {
-  width: 60px;
-  height: 60px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px #eee;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.square-btn {
-  width: 48px;
-  height: 48px;
-  font-size: 18px;
-  border-radius: 8px;
-  background: #e0e0e0;
-  color: #333;
-  border: none;
-  padding: 0;
-}
-
+/* 操作栏 */
 .btn-cross-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* 垂直居中 */
-  margin-top: 10px;
+  justify-content: center;
+  margin-top: 10px; /* 操作栏往上平移，原40px改为20px */
   margin-bottom: 18px;
-  min-height: 200px; /* 可根据实际调整高度 */
+  min-height: 200px;
 }
-
 .cross-row {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-
 .cross-btn-box {
   width: 60px;
   height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #e0e0e0; /* 改为灰色，与按钮一致 */
+  border-radius: 12px;
+  box-shadow: 0 8px 16px -6px rgba(0,0,0,0.18);
+}
+.cross-btn {
+  width: 48px;
+  height: 48px;
+  font-size: 18px;
+  border-radius: 8px;
+  background: transparent; /* 按钮背景透明 */
+  color: #333;
+  border: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: background 0.2s;
+}
+.cross-btn:active {
+  background: #bdbdbd;
+}
+.cross-empty {
+  width: 60px;
+  height: 60px;
 }
 
-.cross-btn {
+/* 通用按钮样式 */
+.btn,
+.cross-btn,
+.square-btn,
+.restart-btn {
   width: 48px;
   height: 48px;
   font-size: 18px;
@@ -129,26 +137,38 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  transition: background 0.2s, box-shadow 0.2s;
+  /* 删除 box-shadow: 0 2px 8px #ccc; */
+}
+.cross-btn:active,
+.square-btn:active,
+.btn:active,
+.restart-btn:active {
+  background: #bdbdbd;
+  box-shadow: 0 1px 4px #aaa;
 }
 
-.cross-empty {
-  width: 60px;
-  height: 60px;
-}
-
+/* 重新开始按钮特殊样式 */
 .restart-box {
   width: 240px;
   margin: 0 auto;
   margin-bottom: 10px;
+  margin-top: 10px; /* 重新开始按钮往上平移，原30px改为15px */
   background: #1976d2;
   border-radius: 12px;
-  box-shadow: 0 2px 8px #eee;
+  box-shadow: 0 8px 16px -6px rgba(0,0,0,0.18);
+  /* 阴影只在下方 */
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 8px 0;
+  transition: box-shadow 0.2s, background 0.2s;
 }
-
+.restart-box:active {
+  background: #1565c0;
+  box-shadow: 0 2px 8px -2px rgba(33,150,243,0.25);
+  /* 按动时阴影变浅 */
+}
 .restart-btn {
   width: 100%;
   background: #1976d2;
@@ -158,4 +178,9 @@
   border-radius: 8px;
   padding: 10px 0;
   font-weight: bold;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.restart-btn:active {
+  background: #1565c0;
+  box-shadow: 0 1px 4px #aaa;
 }
